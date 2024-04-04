@@ -1,0 +1,73 @@
+﻿<Window x:Class="WPFzad5.EditorWindow"
+  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:local="clr-namespace:WPFzad5"
+  mc:Ignorable="d"
+  Title="Edytor"
+  Width="400"
+  SizeToContent="Height">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+      <RowDefinition Height="auto"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="auto"/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    
+    <Label Margin="3"
+      Grid.Column="0"
+      Grid.Row="0">
+      Tytuł:</Label>
+    <TextBox Margin="3"
+      Grid.Column="1"
+      Grid.Row="0"
+      Text="{Binding Path=Film.Title,
+      RelativeSource={RelativeSource FindAncestor,
+      AncestorType={x:Type Window}},
+      Mode=TwoWay}"/>
+
+    <Label Margin="3"
+      Grid.Column="0"
+      Grid.Row="1">
+      Data premiery:</Label>
+    <DatePicker Margin="3"
+      Grid.Column="1"
+      Grid.Row="1"
+      SelectedDate="{Binding Path=Film.Release,
+      RelativeSource={RelativeSource FindAncestor,
+      AncestorType={x:Type Window}},
+      Mode=TwoWay}"/>
+
+    <Label Margin="3"
+      Grid.Column="0"
+      Grid.Row="2">
+      Opis:</Label>
+    <TextBox Margin="3"
+      Grid.Column="1"
+      Grid.Row="2"
+      Text="{Binding Path=Film.Description,
+      RelativeSource={RelativeSource FindAncestor,
+      AncestorType={x:Type Window}},
+      Mode=TwoWay}"/>
+    
+    <StackPanel Orientation="Horizontal"
+      Grid.Row="3"
+      Grid.ColumnSpan="2"
+      HorizontalAlignment="Right">
+      <Button IsDefault="True"
+        Margin="3"
+        Padding="15,3"
+        Click="OkClick">OK</Button>
+      <Button IsCancel="True"
+        Margin="3"
+        Padding="15,3"
+        Click="CancelClick">Anuluj</Button>
+    </StackPanel>
+  </Grid>
+</Window>
